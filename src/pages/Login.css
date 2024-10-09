@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f0dd;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+/* Logo Section */
+.logo-section {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Title Section */
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #f28d72;
+    margin: 10px 0;
+    position: relative;
+}
+
+/* Align subtitle with the word "Smart" */
+.subtitle {
+    font-size: 18px;
+    color: #ff7043;
+    margin-bottom: 30px;
+    text-align: left;
+    margin-left: 250px;
+}
+
+/* Form Section */
+.form-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* Center form inputs */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    width: 98%;
+    padding: 10px;
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e06639;
+}
+
+.login-link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #ff7043;
+    text-decoration: none;
+}
