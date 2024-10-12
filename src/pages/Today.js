@@ -1,31 +1,49 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Today.css';
+import AddTask from './AddTask';  // Import the AddTask component
 
-function Today() {  // Changed component name to Today
+function Today() {
   const [userEmail, setUserEmail] = useState('');
   const [projects, setProjects] = useState([]);
   const [showProjects, setShowProjects] = useState(false);
+  const [tasks, setTasks] = useState([]); // Tasks state
+  const [showAddTaskPopup, setShowAddTaskPopup] = useState(false); // Control popup visibility
 
-  // Retrieve the logged-in email from localStorage when the dashboard loads
+  const navigate = useNavigate();
+
   useEffect(() => {
     const email = localStorage.getItem('loggedInEmail');
     if (email) {
       setUserEmail(email);
     }
 
-    // Sample data for projects (replace with actual data if needed)
     const storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
     setProjects(storedProjects);
+
+    // Fetch tasks from localStorage
+    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    setTasks(storedTasks);
   }, []);
 
-  // Toggle project dropdown
   const toggleProjects = () => {
-    setShowProjects(!showProjects);
+    setShowProjects(!showProjects);  // Toggle project visibility
   };
 
-  // Handle notification click (you can replace this with real logic later)
   const handleNotificationClick = () => {
-    alert("You clicked the notifications icon!"); // Placeholder for notification handling
+    alert('You clicked the notifications icon!');
+  };
+
+  const handleTodayClick = () => {
+    navigate('/today');
+  };
+
+  const handleAddTaskClick = () => {
+    setShowAddTaskPopup(true); // Show the popup when "Add Task" is clicked
+  };
+
+  const closeAddTaskPopup = () => {
+    setShowAddTaskPopup(false); // Close the popup
   };
 
   return (
@@ -43,80 +61,66 @@ function Today() {  // Changed component name to Today
 
       {/* Main content with sidebar and content area */}
       <div className="main-content">
-        {/* Sidebar with user info and menu */}
         <nav className="sidebar">
-          {/* User Info and Notification Button */}
+          {/* Sidebar */}
           <div className="user-info">
             <img src="https://api.iconify.design/mdi:account-circle.svg" alt="User Profile" className="user-icon" />
-            <span className="user-email">{userEmail}</span> {/* Display the logged-in email */}
+            <span className="user-email">{userEmail}</span>
             <img
               src="https://api.iconify.design/mdi:bell-outline.svg"
               alt="Notifications Icon"
               className="notification-icon"
               title="Notifications"
-              onClick={handleNotificationClick} /* Make the notifications icon clickable */
+              onClick={handleNotificationClick}
             />
           </div>
 
-          {/* Add Task (functional button, to be implemented later) */}
-          <a href="#" className="menu-item">
+          <a href="#" className="menu-item" onClick={handleAddTaskClick}>
             <img src="https://api.iconify.design/mdi:plus-circle.svg" alt="Add Task Icon" className="menu-icon" />
             <span>Add Task</span>
           </a>
 
           <a href="#" className="menu-item">
             <img src="https://api.iconify.design/mdi:magnify.svg" alt="Search Icon" className="menu-icon" />
-            <span>Search</span> {/* Will become a pop-up */}
+            <span>Search</span>
           </a>
 
           <a href="#" className="menu-item">
             <img src="https://api.iconify.design/mdi:inbox.svg" alt="Inbox Icon" className="menu-icon" />
-            <span>Inbox</span> {/* Inbox page */}
+            <span>Inbox</span>
           </a>
 
-          <a href="#" className="menu-item">
+          <div className="menu-item" onClick={handleTodayClick}>
             <img src="https://api.iconify.design/mdi:calendar.svg" alt="Today Icon" className="menu-icon" />
-            <span>Today</span> {/* Renamed Calendar page */}
-          </a>
+            <span>Today</span>
+          </div>
 
           <a href="#" className="menu-item">
             <img src="https://api.iconify.design/mdi:clock-outline.svg" alt="Upcoming Icon" className="menu-icon" />
-            <span>Upcoming</span> {/* Upcoming page */}
+            <span>Upcoming</span>
           </a>
 
           <a href="#" className="menu-item">
             <img src="https://api.iconify.design/mdi:filter.svg" alt="Filters Icon" className="menu-icon" />
-            <span>Filters</span> {/* Filters page */}
+            <span>Filters</span>
           </a>
 
-          {/* My Projects section */}
           <div className="projects-section">
             <div className="projects-header">
               <span>My Projects</span>
               <div className="projects-controls">
                 <button className="project-add-button">
-                  <img
-                    src="https://api.iconify.design/mdi:plus-circle.svg"
-                    alt="Add Project"
-                    title="Create New Project"
-                  />
+                  <img src="https://api.iconify.design/mdi:plus-circle.svg" alt="Add Project" title="Create New Project" />
                 </button>
                 <button className="project-toggle-button" onClick={toggleProjects}>
-                  <img
-                    src={`https://api.iconify.design/mdi:chevron-${showProjects ? 'down' : 'right'}.svg`}
-                    alt="Toggle Projects"
-                  />
+                  <img src={`https://api.iconify.design/mdi:chevron-${showProjects ? 'down' : 'right'}.svg`} alt="Toggle Projects" />
                 </button>
               </div>
             </div>
             {showProjects && (
               <div className="projects-dropdown">
                 {projects.length > 0 ? (
-                  projects.map((project, index) => (
-                    <div key={index} className="project-item">
-                      {project}
-                    </div>
-                  ))
+                  projects.map((project, index) => <div key={index} className="project-item">{project}</div>)
                 ) : (
                   <div className="no-projects">No projects yet</div>
                 )}
@@ -124,27 +128,29 @@ function Today() {  // Changed component name to Today
             )}
           </div>
 
-          {/* Templates section at the bottom */}
           <div className="templates-section">
             <a href="#" className="menu-item">
               <img src="https://api.iconify.design/mdi:file-document-outline.svg" alt="Templates Icon" className="menu-icon" />
-              <span>Templates</span> {/* Templates page */}
+              <span>Templates</span>
             </a>
           </div>
         </nav>
 
         {/* Content area */}
         <div className="content-area">
-          <h1 className="page-title">Today-StudySmart</h1> {/* Page title for 'Today' page */}
-          <a href="#" className="content-item">
-            <img src="https://api.iconify.design/mdi:plus-circle.svg" alt="Add Task Icon" className="add-icon" />
+          {/* Title centered in the middle of the content area */}
+          <h1 className="today-title">Today</h1>
+
+          {/* Add Task Button below the title */}
+          <button className="add-task-btn" onClick={handleAddTaskClick}>
+            <img src="https://api.iconify.design/mdi:plus-circle.svg" alt="Add Task Icon" />
             <span>Add Task</span>
-          </a>
-          <div className="dashboard-content">
-            {/* Your content for the 'Today' page goes here */}
-          </div>
+          </button>
         </div>
       </div>
+
+      {/* Add Task popup */}
+      {showAddTaskPopup && <AddTask onClose={closeAddTaskPopup} />}
     </div>
   );
 }
