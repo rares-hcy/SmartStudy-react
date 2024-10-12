@@ -1,0 +1,120 @@
+/* Popup background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+    background-color: #faf3dd;
+    border: 3px solid #1e3d59;
+    border-radius: 8px;
+    padding: 20px;
+    width: 600px;  /* Fixed width of the popup */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-bottom: 40px; /* Added bottom padding to balance the popup */
+}
+
+/* Title centered */
+.popup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1e3d59;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+  
+.form-group label {
+    margin-bottom: 5px;
+    color: #1e3d59;
+    font-weight: bold;
+    text-align: left;
+    width: calc(100% - 60px);  /* Match the width of the input fields */
+    margin: 0 auto;  /* Align labels with input fields */
+}
+
+/* Input fields */
+#task-name,
+#task-desc,
+#task-date,
+#task-time,
+#task-priority {
+    width: calc(100% - 60px);  /* Adds 30px margin on both sides */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #1e3d59;
+    font-size: 14px;
+    margin: 0 auto;  /* Centers the inputs */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
+
+/* Ensure description box has height */
+#task-desc {
+    height: 80px;
+    resize: none;
+}
+
+/* Button styles */
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;  /* Buttons on opposite sides */
+    margin-top: 20px;
+    width: calc(100% - 60px);  /* Ensure buttons align with the boxes */
+    margin: 0 auto;  /* Center the buttons container to match input boxes */
+}
+  
+.popup-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px; /* Fixed size for both buttons */
+}
+  
+.add-btn {
+    background-color: #1e3d59;
+    color: #fff;
+    align-self: flex-start;  /* Ensures it stays on the left */
+}
+  
+.cancel-btn {
+    background-color: #ff8c69;
+    color: #fff;
+    align-self: flex-end; /* Ensures it stays on the right */
+}
+
+/* Hover effects */
+.add-btn:hover {
+    background-color: #3a5b7e;
+}
+
+.cancel-btn:hover {
+    background-color: #e06666;
+}
+
+/* Error message popup */
+.error-popup {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
