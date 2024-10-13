@@ -13,81 +13,209 @@ body, html {
   height: 100vh;
 }
 
-/* Top bar styling */
-.top-bar {
-  background-color: #1e3d59;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 32px;
-  width: 100%;
-  color: #ff8c69;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.title-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-weight: normal;
-}
-
-.app-title {
-  font-size: 20px;
-  margin-left: 0px;
-  transform: translateY(13px);
-  font-weight: bold;
-}
-
-.main-title {
-  color: #ff8c69;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-size: 55px;
-  font-weight: normal;
-  margin: 0;
-}
-
-/* Sidebar styling */
-.sidebar {
-  background-color: #1e3d59;
-  width: 250px;
-  padding: 20px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 70px;
-  justify-content: space-between;
-}
-
 /* Title styling in the content area */
 .today-title {
   text-align: left;
   font-size: 36px;
   color: #1e3d59;
-  margin-top: 125px;
-  margin-left: -140%; /* Move title 20% more to the left */
+  margin-top: 13vh; /* Relative to viewport height */
+  margin-left: 0 vw; /* Relative to viewport width */
 }
 
-/* Add task button styling for today page */
+/* Task list styling */
+.task-list {
+  margin-top: 20px;
+  margin-left: -10vw; /* Align task list with Today title */
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #faf3dd;
+  transition: background-color 0.5s ease;  /* Smooth fade effect */
+  position: relative;
+}
+
+.task-item:hover {
+  background-color: #e0d8b9;  /* Priority-based background color */
+}
+
+.hover-message {
+  display: none;  /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  color: #333;
+  z-index: 10;
+}
+
+.task-item:hover .hover-message {
+  display: block;  /* Show the message when hovered */
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  border-radius: 50%;
+  appearance: none;
+  border: 2px solid #4caf50;
+  position: relative;
+  cursor: pointer;
+}
+
+.task-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: checkbox-animation 0.3s forwards;
+}
+
+@keyframes checkbox-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Progress bar styling */
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: -10vw;
+  position: relative;  /* Set the position for easy placement of percentage */
+  margin-left: -10vw;
+}
+
+.progress-bar {
+  width: 200%;
+  background-color: #faf3dd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 5px;
+  margin-left: 25vw;
+  margin-top: 15px;
+  border: 2px solid #1e3d59; /* Blue margin for better visibility */
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.5s ease;
+}
+
+.progress-bar-text {
+  position: absolute;
+  right: -470px;  /* Align the text to the right side of the progress bar */
+  top: 60%;
+  transform: translateY(-50%);
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Pagination controls styling */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.pagination-controls button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* My Projects section */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-add-button, .project-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.projects-dropdown {
+  margin-top: 10px;
+}
+
+.project-item {
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.no-projects {
+  padding: 10px;
+  color: #999;
+  text-align: center;
+}
+
+/* Task details styling */
+.task-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;  /* Stack the task title and description */
+}
+
+.task-name {
+  font-weight: bold;  /* Bold task title */
+  display: block;     /* Task name on a separate line */
+}
+
+.task-desc {
+  font-size: 14px;    /* Smaller text for the description */
+  color: #666;        /* Slightly lighter color for the description */
+  margin-top: 5px;    /* Add some space between title and description */
+  display: block;
+}
+.random-image {
+  width: 25vw;  /* Responsive width */
+  height: auto;  /* Maintain aspect ratio */
+  display: block;
+  margin-top: 5vh;
+  margin-left: 25vw;  /* Center the image horizontally */
+}
+.random-message {
+  font-family: 'Alata', sans-serif;  /* Consistent font */
+  font-size: 18px;  /* Consistent font size */
+  color: #1e3d59;  /* Minimalist, readable color */
+  text-align: center;
+  margin-top: 20px;  /* Space between the image and the message */
+  margin-left: 25vw;  /* Align the text with the image */
+  width: 25vw;  /* Same width as the image */
+  word-wrap: break-word;  /* Ensure long text breaks onto the next line */
+}
 .add-task-btn {
   display: flex;
   justify-content: flex-start; /* Align the button with the title */
@@ -100,17 +228,15 @@ body, html {
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-left: -140%; /* Move button 20% more to the left */
-  margin-top: 20px;
+  margin-left: 0vw; /* Align with the title using viewport units */
+  margin-top: 0vh;
 }
-
 .add-task-btn img {
   width: 24px;
   height: 24px;
   margin-right: 10px;
   filter: brightness(0) invert(1);
 }
-
 .add-task-btn:hover {
   background-color: #3a5b7e;
 }
