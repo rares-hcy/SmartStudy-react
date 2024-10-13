@@ -80,12 +80,15 @@ function Today() {
   };
 
   const handleAddProject = () => {
-    const newProject = prompt("Enter the project name:");
-    if (newProject) {
-      const updatedProjects = [...projects, newProject];
-      setProjects(updatedProjects);
-      localStorage.setItem('projects', JSON.stringify(updatedProjects));  // Save to localStorage
-    }
+    navigate('/coming-soon');  // Redirect to Coming Soon page
+  };
+
+  const handleFiltersClick = () => {
+    navigate('/coming-soon');  // Redirect to Coming Soon page
+  };
+
+  const handleTemplatesClick = () => {
+    navigate('/coming-soon');  // Redirect to Coming Soon page
   };
 
   const tasksPerPage = 10;
@@ -180,12 +183,12 @@ function Today() {
               <span>Today</span>
             </div>
 
-            <a href="#" className="menu-item">
+            <a href="#" className="menu-item" onClick={handleFiltersClick}>
               <img src="https://api.iconify.design/mdi:clock-outline.svg" alt="Upcoming Icon" className="menu-icon" />
               <span>Upcoming</span>
             </a>
 
-            <a href="#" className="menu-item">
+            <a href="#" className="menu-item" onClick={handleFiltersClick}>
               <img src="https://api.iconify.design/mdi:filter.svg" alt="Filters Icon" className="menu-icon" />
               <span>Filters</span>
             </a>
@@ -215,7 +218,7 @@ function Today() {
             </div>
 
             <div className="templates-section">
-              <a href="#" className="menu-item">
+              <a href="#" className="menu-item" onClick={handleTemplatesClick}>
                 <img src="https://api.iconify.design/mdi:file-document-outline.svg" alt="Templates Icon" className="menu-icon" />
                 <span>Templates</span>
               </a>
@@ -223,8 +226,8 @@ function Today() {
           </nav>
 
           <div className="content-area">
-          <h1
-            className="today-title"
+            <h1
+              className="today-title"
               style={{ marginLeft: tasks.length === 0 ? '0vw' : '-10vw' }}
             >Today</h1>
 

@@ -5,6 +5,7 @@ import Login from './pages/Login';     // Login page
 import Register from './pages/Register';  // Register page
 import Dashboard from './pages/Dashboard';  // Dashboard page
 import Today from './pages/Today';     // Today page
+import ComingSoon from './pages/ComingSoon';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/today" element={<Today />} />  {/* Route for Today page */}
+        <Route path="/coming-soon" element={<ComingSoon />} />
       </Routes>
     </Router>
   );
