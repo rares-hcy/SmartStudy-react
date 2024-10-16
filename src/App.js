@@ -6,6 +6,8 @@ import Register from './pages/Register';  // Register page
 import Dashboard from './pages/Dashboard';  // Dashboard page
 import Today from './pages/Today';     // Today page
 import ComingSoon from './pages/ComingSoon';
+import Inbox from './pages/Inbox';
+
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/today" element={<Today />} />  {/* Route for Today page */}
+        <Route path="/today" element={<Today />} /> 
         <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/inbox" element={<Inbox />} />
       </Routes>
     </Router>
   );

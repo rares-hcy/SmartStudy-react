@@ -92,7 +92,7 @@ function AddTask({ onClose }) {
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
         <h2 className="popup-title">Add New Task</h2>
         <div className="form-group">
-          <label htmlFor="task-name">Task Name (max 50 characters)</label>
+          <label htmlFor="task-name">Task Name</label>
           <input
             type="text"
             id="task-name"

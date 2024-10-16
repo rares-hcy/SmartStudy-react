@@ -1,0 +1,124 @@
+/* Popup background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+    background-color: #faf3dd;
+    border: 3px solid #1e3d59;
+    border-radius: 8px;
+    padding: 20px;
+    width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-bottom: 40px;
+}
+
+/* Title centered */
+.popup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1e3d59;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+  
+.form-group label {
+    margin-bottom: 5px;
+    color: #1e3d59;
+    font-weight: bold;
+    text-align: left;
+    width: calc(100% - 60px);
+    margin: 0 auto;
+}
+
+/* Input fields */
+#reminder-name,
+#reminder-desc,
+#reminder-date,
+#reminder-time {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #1e3d59;
+    font-size: 14px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Ensure description box has height */
+#reminder-desc {
+    height: 80px;
+    resize: none;
+}
+
+/* Button styles */
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: calc(100% - 60px);
+    margin: 0 auto;
+}
+  
+.popup-buttons button {
+    display: flex;  /* Use flexbox */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+    white-space: nowrap;  /* Prevent text wrapping */
+}
+  
+.add-btn {
+    background-color: #1e3d59;
+    color: #fff;
+    order: 2;  /* Place "Add Reminder" on the right */
+}
+
+.cancel-btn {
+    background-color: #ff8c69;
+    color: #fff;
+    order: 1;  /* Place "Cancel" on the left */
+}
+
+/* Hover effects */
+.add-btn:hover {
+    background-color: #3a5b7e;
+}
+
+.cancel-btn:hover {
+    background-color: #e06666;
+}
+
+
+/* Error message popup */
+.error-popup {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}

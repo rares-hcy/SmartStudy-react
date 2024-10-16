@@ -33,6 +33,10 @@ function Dashboard() {
     navigate('/today');
   };
 
+  const handleInboxClick = () => {
+    navigate('/inbox'); // Navigate to Inbox page
+  };
+
   const handleAddTaskClick = () => {
     setShowAddTaskPopup(true); // Show the popup when "Add Task" is clicked
   };
@@ -89,7 +93,7 @@ function Dashboard() {
             <span>Search</span>
           </a>
 
-          <a href="#" className="menu-item">
+          <a href="#" className="menu-item" onClick={handleInboxClick}>
             <img src="https://api.iconify.design/mdi:inbox.svg" alt="Inbox Icon" className="menu-icon" />
             <span>Inbox</span>
           </a>
