@@ -94,13 +94,11 @@
 .add-btn {
     background-color: #1e3d59;
     color: #fff;
-    align-self: flex-start;  /* Ensures it stays on the left */
 }
   
 .cancel-btn {
     background-color: #ff8c69;
     color: #fff;
-    align-self: flex-end; /* Ensures it stays on the right */
 }
 
 /* Hover effects */
@@ -112,9 +110,56 @@
     background-color: #e06666;
 }
 
-/* Error message popup */
+/* Error message style */
 .error-popup {
-    color: red;
+    color: #e74c3c; /* Bright red for visibility */
+    background-color: #f9e5e5; /* Light background for contrast */
+    padding: 10px;
+    border: 1px solid #e74c3c;
+    border-radius: 5px;
+    margin: 10px 0; /* Add space around the error */
+    width: calc(100% - 60px);  /* Align with input boxes */
     text-align: center;
-    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Checkbox and label container */
+.form-group.checkbox-group {
+    display: flex;
+    align-items: center; /* Align checkbox and text horizontally */
+    margin-bottom: 15px;
+    justify-content: flex-start; /* Align the checkbox and label to the left */
+    width: calc(100% - 60px); /* Align with input boxes */
+    margin: 0 auto;
+}
+
+/* Minimalist circular checkbox style */
+#add-reminder {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #1e3d59;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px; /* Add spacing between checkbox and text */
+}
+
+#add-reminder:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: #1e3d59;
+    border-radius: 50%;
+}
+
+.add-reminder-text {
+    color: #1e3d59;
+    font-weight: bold;
+    cursor: pointer;
 }

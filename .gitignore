@@ -27,6 +27,5 @@ yarn-error.log*
 .idea/
 
 # specific folders in your project
-background-photos/
 StudySmart-react/.gitattributes
 StudySmart-react/.gitignore
