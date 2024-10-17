@@ -1,0 +1,86 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #faf3dd; /* Match your theme */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 500px; /* Set a width that fits your design */
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #1e3d59; /* Match close button color with your theme */
+}
+
+.checkboxes {
+    display: flex; /* Align checkboxes in a row */
+    justify-content: space-between; /* Space checkboxes evenly */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.checkboxes label {
+    display: flex;
+    padding-top: 15px;
+    line-height: 2;
+    margin-bottom: 0px; /* No spacing below labels */
+}
+
+.checkboxes input[type="checkbox"] {
+    appearance: none; /* Remove default checkbox styling */
+    width: 20px; /* Width of the circular checkbox */
+    height: 20px; /* Height of the circular checkbox */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid #1e3d59; /* Border color to match theme */
+    margin-right: 10px; /* Spacing between checkbox and label */
+    cursor: pointer;
+    position: relative;
+}
+
+.checkboxes input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    width: 20px; /* Inner circle size */
+    height: 20px; /* Inner circle size */
+    background-color: #1e3d59; /* Fill color when checked */
+    border-radius: 50%; /* Keep inner circle circular */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    margin-top: 15px;
+}
+
+.reminder-section, .notes-section {
+    margin-top: 15px; /* Add spacing above sections */
+}
+
+.reminder-title, .note-title {
+    font-weight: bold; /* Bold title */
+    margin-right: 5px; /* Space between title and description */
+}
+
+/* Center the title */
+.popup-content h2 {
+    text-align: center; /* Center the title */
+}

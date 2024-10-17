@@ -4,6 +4,8 @@ import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import './Today.css';  // Import the CSS file for styling
 import AddTask from './AddTask';  // Import the AddTask component
+import ShowNotesAndReminders from './ShowNotesAndReminders'; // Import the new popup component
+
 import autumnImage from '../assets/Background_Autumn.png';  // Image imports
 import forestImage from '../assets/Background_Forest.png';
 import springImage from '../assets/Background_Spring.png';
@@ -16,6 +18,7 @@ function Today() {
   const [userEmail, setUserEmail] = useState('');
   const [tasks, setTasks] = useState([]); // State for tasks
   const [showAddTaskPopup, setShowAddTaskPopup] = useState(false);  // State to control popup visibility
+  const [showNotesAndRemindersPopup, setShowNotesAndRemindersPopup] = useState(false); // State for notes & reminders popup
   const [randomImage, setRandomImage] = useState('');  // State to hold the random image
   const [randomMessage, setRandomMessage] = useState(''); // State to hold the random message
   const [currentPage, setCurrentPage] = useState(1);  // Pagination control
@@ -141,6 +144,16 @@ function Today() {
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   };
 
+  // Function to open the notes & reminders popup
+  const openNotesAndRemindersPopup = () => {
+    setShowNotesAndRemindersPopup(true);
+  };
+
+  // Function to close the notes & reminders popup
+  const closeNotesAndRemindersPopup = () => {
+    setShowNotesAndRemindersPopup(false);
+  };
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="dashboard-container">
@@ -230,10 +243,13 @@ function Today() {
           </nav>
 
           <div className="content-area">
-            <h1
-              className="today-title"
-              style={{ marginLeft: tasks.length === 0 ? '0vw' : '-10vw' }}
-            >Today</h1>
+          <div className="today-header">
+            <h1 className="today-title">Today</h1>
+              {/* Button to open the notes & reminders popup */}
+                <button className="view-notes-reminders-btn" onClick={openNotesAndRemindersPopup}>
+                  View Notes & Reminders
+                </button>
+          </div>
 
             {tasks.length === 0 ? (
               <>
@@ -280,6 +296,7 @@ function Today() {
           </div>
 
           {showAddTaskPopup && <AddTask onClose={closeAddTaskPopup} />}
+          {showNotesAndRemindersPopup && <ShowNotesAndReminders onClose={closeNotesAndRemindersPopup} />} {/* Popup for notes and reminders */}
         </div>
       </div>
     </DndProvider>
