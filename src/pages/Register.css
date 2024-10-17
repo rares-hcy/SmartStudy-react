@@ -1,109 +1,115 @@
-/* General Styles */
+/* Reset margins, padding, and ensure border-box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f0dd;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  background-color: #faf3dd; /* Light background color */
 }
 
-.container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    position: relative;
+/* Register page container */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
 }
 
-/* Logo Section */
-.logo-section {
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* Enhanced Card styling */
+.login-form-container {
+  background: linear-gradient(135deg, #ffffff, #f0f4f8);  /* Subtle gradient */
+  border: 1px solid #e0e0e0;  /* Light border */
+  border-radius: 15px;  /* Rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Deeper shadow effect */
+  padding: 40px;  /* Padding inside the card */
+  width: 350px;  /* Card width */
+  text-align: center;  /* Center text inside the card */
 }
 
+/* Circle for logo */
 .circle {
-    width: 150px;
-    height: 150px;
-    background-color: #d3d3d3;
-    border-radius: 50%;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;  /* Transparent background */
+  border-radius: 50%;
+  height: 280px;  /* Increased size for the logo */
+  width: 280px;   /* Increased size for the logo */
+  margin-bottom: -50px;
 }
 
-/* Title Section */
-.title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #f28d72;
-    margin: 10px 0;
-    position: relative;
+/* Logo image */
+.logo-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
-/* Align subtitle with the word "Smart" */
+/* Main title (StudySmart) */
+h1 {
+  font-size: 3rem;
+  color: #ff8c69; /* Updated title color */
+  margin-bottom: 5px;
+}
+
+/* Subtitle styling */
 .subtitle {
-    font-size: 18px;
-    color: #ff7043;
-    margin-bottom: 30px;
-    text-align: left;
-    margin-left: 250px;
+  font-size: 1.5rem;  /* Match subtitle size */
+  color: #ff8c69;  /* Updated subtitle color */
+  margin: 0 0 20px 300px; /* Adjusted margin for better positioning */
+  text-align: center; /* Center text for subtitle */
 }
 
-/* Form Section */
-.form-section {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin: 0 auto;
-}
-
-/* Center form inputs */
+/* Form styling */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-form input {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+/* Input fields styling */
+input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
 }
 
-form button {
-    width: 98%;
-    padding: 10px;
-    background-color: #ff7043;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Button styling */
+button {
+  background-color: #1e3d59; /* Updated button color */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-form button:hover {
-    background-color: #e06639;
+button:hover {
+  background-color: #ff6f61; /* Change color on hover */
 }
 
-.login-link {
-    margin-top: 10px;
-    font-size: 14px;
+/* Links */
+a {
+  color: #ff7e39; /* Orange link color */
+  text-decoration: none;
 }
 
-.login-link a {
-    color: #ff7043;
-    text-decoration: none;
+a:hover {
+  text-decoration: underline;
+}
+
+/* Center text for sign-up link */
+p {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px; /* Adjusted font size */
+  color: #1e3d59; /* Color change for the message */
 }

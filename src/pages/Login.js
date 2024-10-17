@@ -1,50 +1,42 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import './Login.css';
+import logoImage from '../assets/Logo.png';
 
-function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate();  // Initialize navigate
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // State for error messages
+  const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    // Retrieve the accounts stored in localStorage
+    // Retrieve stored accounts from localStorage
     const storedAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
+    
+    // Check if the email exists and the password matches
+    const account = storedAccounts.find(acc => acc.email === email);
 
-    // Find if there is an account that matches the input email and password
-    const account = storedAccounts.find(
-      (acc) => acc.email === email && acc.password === password
-    );
-
-    // Check if account exists
-    if (account) {
-      // Store the logged-in email in localStorage
-      localStorage.setItem('loggedInEmail', email);
-
+    if (account && account.password === password) {
       // Successful login
-      alert('Login successful!');
-      setErrorMessage('');
-      navigate('/dashboard');  // Redirect to Dashboard after successful login
+      console.log("Login successful!");
+      navigate('/today'); // Redirect to the Today page
     } else {
-      // If no account matches
-      setErrorMessage('Invalid email or password');
+      // Login failed
+      setErrorMessage("Invalid email or password");
     }
   };
 
   return (
-    <div className="container">
-      <div className="logo-section">
-        <div className="circle"></div>
-        <h1 className="title">StudySmart</h1>
-        <p className="subtitle">Your AI Study Companion</p>
+    <div className="login-page">
+      <div className="circle">
+        <img src={logoImage} alt="Logo" className="logo-image" />
       </div>
-
-      <div className="form-section">
-        <h2>Log in</h2>
-        <form onSubmit={handleSubmit}>
+      <h1>StudySmart</h1> {/* Title outside the card */}
+      <p className="subtitle">Your AI Study Companion</p> {/* Subtitle outside the card */}
+      <div className="login-form-container"> {/* Enhanced card container */}
+        <form onSubmit={handleLogin}>
           <input
             type="email"
             placeholder="Email"
@@ -61,13 +53,13 @@ function Login() {
           />
           <button type="submit">Log in using Email</button>
         </form>
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Display error message */}
         <p className="login-link">
-          You don't have an account yet? <Link to="/register">Sign up now</Link>
+          You don't have an account yet? <a href="/register">Sign up now</a>
         </p>
       </div>
     </div>
   );
-}
+};
 
 export default Login;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
+import logo from '../assets/Logo.png';
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -12,16 +13,12 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if the password and confirm password match
     if (password !== confirmPassword) {
       setErrorMessage('Passwords do not match');
       return;
     }
 
-    // Retrieve the current accounts stored in localStorage
     const storedAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
-
-    // Check if the email is already registered
     const accountExists = storedAccounts.some((acc) => acc.email === email);
 
     if (accountExists) {
@@ -29,29 +26,22 @@ function Register() {
       return;
     }
 
-    // Create a new account and add it to the stored accounts
     const newAccount = { email, password };
     storedAccounts.push(newAccount);
-
-    // Save the updated accounts list in localStorage
     localStorage.setItem('accounts', JSON.stringify(storedAccounts));
 
-    // Clear error message and redirect to login page
     setErrorMessage('');
-    alert('Registration successful! You can now log in.');
-    navigate('/login');
+    navigate('/dashboard');
   };
 
   return (
-    <div className="container">
-      <div className="logo-section">
-        <div className="circle"></div>
-        <h1 className="title">StudySmart</h1>
-        <p className="subtitle">Your AI Study Companion</p>
+    <div className="login-page">
+      <div className="circle">
+        <img src={logo} alt="Logo" className="logo-image" />
       </div>
-
-      <div className="form-section">
-        <h2>Create your account</h2>
+      <h1>StudySmart</h1> {/* Title outside the card */}
+      <p className="subtitle">Your AI Study Companion</p> {/* Subtitle outside the card */}
+      <div className="login-form-container"> {/* Enhanced card container */}
         <form onSubmit={handleSubmit}>
           <input
             type="email"

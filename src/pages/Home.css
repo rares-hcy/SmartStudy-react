@@ -1,32 +1,89 @@
-/* Set the background to white and center the content */
-.home-container {
+/* Reset margins, padding, and ensure border-box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #faf3dd;  /* Full background color */
+}
+
+/* Make sure the body takes up full height and centers the content */
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: white;
+  min-height: 100vh;
 }
 
-/* Container for the buttons */
+/* Make the container take full width and height */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;  /* Full width */
+  height: 100vh;  /* Full height */
+  padding: 40px;
+}
+
+/* Enhanced Card styling */
+.card {
+  background: linear-gradient(135deg, #ffffff, #f0f4f8);  /* Subtle gradient */
+  border: 1px solid #e0e0e0;  /* Light border */
+  border-radius: 15px;  /* Rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Deeper shadow effect */
+  padding: 40px;  /* Padding inside the card */
+  text-align: center;  /* Center text inside the card */
+  transition: transform 0.3s, box-shadow 0.3s;  /* Smooth hover effect */
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-5px);  /* Lift effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);  /* Increased shadow on hover */
+}
+
+/* Large title with 3D effect */
+.main-title {
+  font-size: 4rem;  /* Large font size */
+  color: #ff6f61;  /* Orange color */
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 0 #1e3d59, 6px 6px 0 #ff8c69;  /* 3D effect */
+}
+
+/* Updated subtitle styling */
+.subtitle {
+  font-size: 1.5rem!important;
+  color: #1e3d59;  /* Updated to match the overall design */
+  margin-bottom: 20px;
+}
+
+/* Button container styling */
 .button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Style the buttons */
+/* Button styling - updated color, same size */
 .home-button {
-  background-color: #007bff;
+  background-color: #1e3d59;  /* Updated button color */
   color: white;
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  padding: 15px 50px;
+  font-size: 1.5rem;
   border: none;
   border-radius: 5px;
-  margin: 10px;
+  margin: 10px;  /* Reduced margin for better spacing */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s;  /* Transition for hover effect */
+  width: 200px;  /* Ensure both buttons are the same width */
 }
 
 .home-button:hover {
-  background-color: #0056b3;
+  background-color: #ff6f61;  /* Change color on hover */
+  transform: scale(1.05);  /* Slightly enlarge on hover */
 }
