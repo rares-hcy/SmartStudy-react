@@ -20,14 +20,14 @@ body {
   padding: 20px;
 }
 
-/* Enhanced Card styling */
+/* Enhanced card styling for the form */
 .login-form-container {
   background: linear-gradient(135deg, #ffffff, #f0f4f8);  /* Subtle gradient */
   border: 1px solid #e0e0e0;  /* Light border */
   border-radius: 15px;  /* Rounded corners */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Deeper shadow effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Shadow effect */
   padding: 40px;  /* Padding inside the card */
-  width: 350px;  /* Card width */
+  width: 350px;  /* Form width */
   text-align: center;  /* Center text inside the card */
 }
 
@@ -38,8 +38,8 @@ body {
   justify-content: center;
   background-color: transparent;  /* Transparent background */
   border-radius: 50%;
-  height: 280px;  /* Increased size for the logo */
-  width: 280px;   /* Increased size for the logo */
+  height: 280px;  /* Size for the logo */
+  width: 280px;   /* Size for the logo */
   margin-bottom: -50px;
 }
 
@@ -59,10 +59,10 @@ h1 {
 
 /* Subtitle styling */
 .subtitle {
-  font-size: 1.5rem;  /* Match subtitle size */
+  font-size: 1.5rem;
   color: #ff8c69;  /* Updated subtitle color */
-  margin: 0 0 20px 300px; /* Adjusted margin for better positioning */
-  text-align: center; /* Center text for subtitle */
+  margin: 0 0 20px 300px;
+  text-align: center;
 }
 
 /* Form styling */
@@ -82,7 +82,7 @@ input {
 
 /* Button styling */
 button {
-  background-color: #1e3d59; /* Updated button color */
+  background-color: #1e3d59; /* Button color */
   color: white;
   padding: 12px;
   border: none;
@@ -106,10 +106,56 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Center text for sign-up link */
+/* Sign-up link text */
 p {
   text-align: center;
   margin-top: 10px;
   font-size: 14px; /* Adjusted font size */
   color: #1e3d59; /* Color change for the message */
+}
+
+/* Container that holds both the form and the password strength box */
+.form-and-strength-container {
+  display: flex;
+  justify-content: flex-start; /* Align the form and strength box side by side */
+  align-items: flex-start;
+  width: 700px; /* Adjusted width to fit both elements */
+}
+
+/* Password strength box styling */
+.password-strength-box {
+  background-color: white; /* White background for the box */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px; /* Fixed width for the strength box */
+  margin-left: 20px; /* Spacing between the form and the strength box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for visual separation */
+}
+
+/* Label for the checkbox and title */
+.password-strength-box label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Loading spinner or text styling (if needed) */
+.password-strength-box .loading {
+  font-style: italic;
+  color: #999;
+}
+
+/* Password suggestions styling */
+.password-strength-box ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
+/* Password suggestion items */
+.password-strength-box li {
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
 }

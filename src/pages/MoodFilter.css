@@ -1,0 +1,28 @@
+.mood-filter-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #faf3dd;
+    border-radius: 8px;
+  }
+  
+  .filtered-tasks-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .filtered-task-item {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .filtered-task-item span {
+    font-weight: bold;
+  }
+  
+  .filtered-task-item p {
+    margin: 5px 0 0;
+  }
+  
